@@ -1,120 +1,395 @@
-# dacl10k Dataset
+# ConcreteVision
 
-**[Twitter/X](https://twitter.com/dacl_ai) | [WACV](https://wacv2024.thecvf.com/workshops/) | [Toolkit](https://github.com/phiyodr/dacl10k-toolkit) | [arXiv](https://arxiv.org/abs/2309.00460) | [dacl.ai](https://dacl.ai/)**
+<p align="center">
+  <h2 align="center">AI-Powered Semantic Segmentation Framework for Concrete Structural Damage Analysis</h2>
+</p>
+
+<p align="center">
+  Deep Learning • Semantic Segmentation • Infrastructure Inspection • ONNX Deployment • Explainable AI
+</p>
+
+---
+
+## Overview
+
+ConcreteVision is a deep learning framework designed for semantic segmentation and analysis of concrete structural damages using computer vision techniques.
+
+The project focuses on:
+- Multi-class concrete damage segmentation
+- Sliding-window inference for high-resolution images
+- Test-Time Augmentation (TTA)
+- ONNX model export and deployment
+- Scalable deployment architecture for web and cloud systems
+
+This repository is designed for:
+- Research experimentation
+- Infrastructure inspection workflows
+- AI-assisted damage assessment
+- Web-based deployment systems
+- Cloud inference pipelines
+
+---
+
+## Features
+
+- DeepLabV3+ semantic segmentation pipeline
+- Transformer-based encoder support (MiT-B5)
+- Multi-label segmentation support
+- ONNX export support
+- Overlay visualization utilities
+- Evaluation metrics and analysis
+- Config-driven experimentation
+- Docker-ready architecture
+- Modular Python package structure
+
+---
+
+## Repository Structure
+
+```bash
+ConcreteVision/
+│
+├── configs/                   # Training config
+├── models/                    # model class
+├── src/
+│   └── damage_segmentation/
+│       ├── datasets/
+│       ├── models/
+│       ├── training/
+│       ├── inference/
+│       ├── evaluation/
+│       └── utils/
+├── pyproject.toml
+├── setup.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Dataset Information
+
+# dacl10k Dataset
 
 dacl10k stands for *damage classification 10k images* and is a **multi-label semantic segmentation** dataset for 19 classes (13 damages and 6 objects) present on bridges. 
 
 This dataset is used in the challenge associated with the **"1st Workshop on Vision-Based Structural Inspections in Civil Engineering" at [WACV2024](https://wacv2024.thecvf.com/workshops/).**
 
-# Version
-
-v2 (20230811)
-
-# License
-
-[(CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
-
 
 # Citation
 
 * Link to the paper: [arXiv](https://arxiv.org/abs/2309.00460)
-* Please cite as:
 
 
+ConcreteVision is developed for semantic segmentation of Structural Concrete Damages using:
+- DACL Challenge dataset
+- Custom preprocessing pipelines
+- Polygon-based annotations
+
+### Supported Damage Categories
+
+- Crack
+- Corrosion
+- Efflorescence
+- Spalling
+- Weathering
+- Structural components like Beam, Protective Equipment
+- Hollow Areas, Cavity
+
+
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/vedant-girish-dalvi/ConcreteVision.git
+
+cd ConcreteVision
 ```
-@misc{flotzinger2023dacl10k,
-      author={Johannes Flotzinger and Philipp J. Rösch and Thomas Braml},
-      title={dacl10k: Benchmark for Semantic Bridge Damage Segmentation}, 
-      year={2023},
-      eprint={https://arxiv.org/abs/2309.00460},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+
+---
+
+## Create Environment
+
+### Conda
+
+```bash
+conda create -n concretevision python=3.10
+
+conda activate concretevision
+```
+
+---
+
+## Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Package Setup
+
+ConcreteVision uses a modern Python package structure.
+
+Install the project in editable mode:
+
+```bash
+pip install -e .
+```
+
+This enables:
+- modular imports
+- package execution
+- IDE support
+- Docker compatibility
+- scalable deployment workflows
+
+---
+
+## Running Modules
+
+Run modules from the project root.
+
+### Training
+
+```bash
+python -m damage_segmentation.training.train
+```
+
+---
+
+### Evaluation
+
+```bash
+python -m damage_segmentation.evaluation.evaluate
+```
+
+---
+
+### Inference
+
+```bash
+python -m damage_segmentation.inference.inference
+```
+
+---
+
+## Example Import Structure
+
+### Recommended
+
+```python
+from damage_segmentation.datasets.dacl_dataset import DaclDataset
+
+from damage_segmentation.utils.visualization import visualize_segmentation
+```
+
+### Avoid
+
+```python
+from utils import visualize_segmentation
+```
+
+---
+
+## ONNX Export
+
+```bash
+python -m damage_segmentation.deployment.export_onnx
+```
+
+---
+
+## Visualization Features
+
+ConcreteVision supports:
+- Colored segmentation masks
+- Labeled Overlay visualizations
+- High-resolution inference visualization
+
+---
+
+## Future Roadmap
+
+- FastAPI backend
+- React frontend
+- AWS cloud deployment
+- Real-time inference API
+
+---
+
+## Technology Stack
+
+### Deep Learning
+
+- PyTorch
+- Segmentation Models PyTorch
+
+
+<!---
+### Backend (Planned)
+
+- FastAPI
+- Docker
+- AWS
+
+### Frontend (Planned)
+
+- React
+- Next.js
+- Tailwind CS
+
+--->
+---
+
+## Packaging and Development
+
+ConcreteVision uses:
+- `pyproject.toml`
+- `setup.py`
+- editable package installation (`pip install -e .`)
+
+for:
+- professional package management
+- deployment readiness
+- modular development
+- scalable architecture
+
+
+---
+<!---
+## Results
+
+| Metric | Status |
+|--------|--------|
+| Mean IoU | In Progress |
+| Dice Score | In Progress |
+| Pixel Accuracy | In Progress |
+
+---
+--->
+
+## Citation
+
+If you use this repository in your research, please cite:
+
+```bibtex
+@misc{concretevision2026,
+  title={ConcreteVision: Deep Learning Framework for Concrete Damage Segmentation},
+  author={Vedant Girish Dalvi},
+  year={2026},
+  url={https://github.com/vedant-girish-dalvi/ConcreteVision}
 }
 ```
 
-# Description
+---
 
-### Task
+## Repository Topics / Tags
 
-Multi-label semantic segmentation
+```text
+deep-learning
+computer-vision
+semantic-segmentation
+pytorch
+deeplabv3plus
+transformers
+infrastructure-inspection
+damage-detection
+construction-ai
+onnx
+aws
+fastapi
+```
 
-* Multi-label: Each pixel can be associated with several classes, e.g. a surface can have Rust and Crack (2 damages) or Rust on Drainage (1 damage and 1 object).
-* Semantic segmentation: Pixel detailed annotation of damages and objects.
-* We are not interested in "instances". If several polygons of the same class overlap, they are merged into one mask. 
+<!---
+---
 
-For evaluation we use [mean Intersection over Union (mIoU)](https://github.com/qubvel/segmentation_models.pytorch/blob/67aceba4b832a36cb99c2184a06a204ba43c4ea1/segmentation_models_pytorch/utils/metrics.py#L6).
+## Recommended GitHub Topics
 
+Add these in GitHub repository settings:
 
+- semantic-segmentation
+- computer-vision
+- deep-learning
+- pytorch
+- deeplabv3plus
+- infrastructure-inspection
+- damage-detection
+- onnx
+- aws
+- fastapi
 
-### Folder structure
+---
 
+## Repository Setup Commands
 
-The folder has following format:
+### Initialize Git
 
 ```bash
-├── README.md
-├── LICENSE.md
-├── annotations
-│   ├── train (n=6.935)
-│   └── validation (n=975)
-└── images
-    ├── train (n=6.935)
-    ├── validation (n=975)
-    └── testdev (n=1012)
+git init
 ```
 
+### Add Remote Repository
 
-### Annotation files
-
-Annotation files originate from [labelme](https://github.com/wkentaro/labelme/tree/main/examples/semantic_segmentation)-format and are slightly adjusted.
-One JSON file looks like this:
-
-```javascript
-{'imageWidth': 1280,
- 'imageHeight': 960,
- 'imageName': 'dacl10k_v2_validation_0012.jpg',
- 'imagePath': 'images/train/dacl10k_v2_validation_0012.jpg', 
- 'split': 'validation',
- 'dacl10k_version': 'v2',
- 'shapes': [{'label': 'Rust',
-   'points': [...],
-   'shape_type': 'polygon'},
-  {'label': 'Rust',
-   'points': [...],
-   'shape_type': 'polygon'},
-  {'label': 'Drainage',
-   'points': [[581.5714285714286, 410.2857142857142],
-    [555.8571428571428, 407.4285714285714],
-    [524.4285714285713, 435.99999999999994],
-    [507.2857142857142, 486.0],
-    [502.99999999999994, 531.7142857142857],
-    [550.1428571428571, 574.5714285714286],
-    [578.7142857142857, 593.1428571428571],
-    [612.9999999999999, 560.2857142857142],
-    [625.8571428571428, 508.8571428571428],
-    [622.9999999999999, 447.42857142857133],
-    [605.8571428571428, 420.2857142857142]],
-   'shape_type': 'polygon'}]}
+```bash
+git remote add origin https://github.com/vedant-girish-dalvi/ConcreteVision.git
 ```
 
-Explanation:
+### Push to GitHub
 
-* `imageWidth`, `imageHeight`: Image width and height (many different image sizes exists).
-* `imageName`, `imagePath`, `split`: Corresponding image name and full path, as well the corresponding dataset split. 
-* `dacl10k_version`: The first version of the arXiv paper uses v1 and the challenge uses v2.
-* `shapes` (list of dictionaries): Each dictionary contains
-  * `label` (str): Name of the class
-  * `points` (list of lists): List of edge points of the polygone (x, y). Origin in top-left corner.
-  * `shape_type`: Always 'polygone' (originates from labelme)
+```bash
+git add .
+
+git commit -m "Initial commit"
+
+git push origin main
+```
+
+---
+
+## Recommended Development Workflow
+
+```bash
+git add .
+
+git commit -m "your message"
+
+git push
+```
+
+--->
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Author
+
+### Vedant Girish Dalvi
+
+GitHub:
+https://github.com/vedant-girish-dalvi
+
+---
+
+## Repository Status
+
+Active Development
+
+ConcreteVision is currently under active research and development with ongoing work in:
+- segmentation improvements
+- deployment optimization
+- cloud inference systems
+- web application integration
 
 
-### Labels/Classes 
 
-Each polygone can have one of 19 classes. For detailed explanation of each class please see **[Appendix A.3. "Class description"](https://arxiv.org/abs/2309.00460)**.
 
-* 13 damage classes: Crack, Alligator Crack (ACrack), Wetspot, Efflorescence, Rust, Rockpocket, Hollowareas, Cavity, Spalling, Graffiti, Weathering, Restformwork, Exposed Rebars (ExposedRebars), 
-* 6 object classes: Bearing, Expansion Joint (EJoint), Drainage, Protective Equipment (PEquipment), Joint Tape (JTape), Washouts/Concrete corrosion (WConccor)
 
-### Toolkit
-
-The [dacl10k-toolkit](https://github.com/phiyodr/dacl10k-toolkit) should act as an entry point for simple data usage in Python and PyTorch for the dacl10k dataset.# dacl_challenge
