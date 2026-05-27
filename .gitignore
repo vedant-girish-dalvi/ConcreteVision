@@ -1,0 +1,43 @@
+# Ignore these folders
+data/
+artifacts/
+experiments/
+
+outputs/
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VSCode
+.vscode/
+
+# Ignore specific files
+annot_to_mask.py
+color_mask.py
+
+# Ignore PNG files
+*.png
+
+# Ignore JSON files
+*.json
+*.jsonl
+
+# Ignore Python bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environments
+venv/
+.env/
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore temporary or log files
+*.log
+*.tmp
+*.bak
+
+

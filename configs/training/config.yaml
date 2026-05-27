@@ -1,0 +1,40 @@
+model:
+  architecture: "DeepLabV3Plus"
+  encoder: "mit_b5"
+  weights: "imagenet"
+  num_classes: 19
+
+training:
+  seed: 42
+  epochs: 300
+  batch_size: 8
+  num_workers: 4
+  clip_grad_norm: 1.0
+  pin_memory: true
+  shuffle: true
+  load_model: false
+
+optimizer:
+  name: "AdamW"
+  params:
+    lr: 1e-4
+    weight_decay: 5e-4
+    differential_lr: true   # <-- add flag to enable encoder/decoder split
+
+scheduler:
+  name: WarmupCosine
+  params:
+    warmup_epochs: 15     
+    min_lr_ratio: 0.01 
+
+early_stopping:
+  enabled: true
+  patience: 15
+  min_delta: 0.001
+    
+amp:
+  enabled: true
+
+checkpoints:
+  folder: "./checkpoints"
+  filepath: "./checkpoints/DeepLabV3Plus_mit_b5_e055_miou0.3744_vloss0.1836.pth"

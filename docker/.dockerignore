@@ -1,0 +1,22 @@
+# avoid copying dataset / outputs / venv / git internals into the image
+images/
+annotations/
+runs/
+wandb/
+inference_output/
+.env
+.git
+.gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+.vscode/
+.idea/
+*.md
+
+# large models / checkpoints you don't want baked into the image
+checkpoints/
+*.ckpt

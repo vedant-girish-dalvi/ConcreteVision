@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+trainer:
+build: .
+image: concrete-damage-segmentation:enroot
+environment:
+- PYTHONUNBUFFERED=1
+- NVIDIA_VISIBLE_DEVICES=all
+volumes:
+- ./data:/app/data:rw
+- ./outputs:/app/outputs:rw
+command: ["python", "train.py", "--data-dir", "/app/data", "--output-dir", "/app/outputs"]
