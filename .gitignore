@@ -3,6 +3,11 @@ data/
 artifacts/
 experiments/
 
+# Packaging artifacts
+*.egg-info/
+dist/
+build/
+
 outputs/
 # Python cache
 __pycache__/
