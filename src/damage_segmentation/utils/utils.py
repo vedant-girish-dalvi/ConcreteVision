@@ -3,7 +3,7 @@ from torch.utils.data import DataLoader
 import json
 import os, random
 from pathlib import Path
-from model import SegmentationModel
+from damage_segmentation.models.model import SegmentationModel
 from torchvision.transforms.functional import to_pil_image
 import cv2
 import numpy as np

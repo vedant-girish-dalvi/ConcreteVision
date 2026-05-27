@@ -1,6 +1,6 @@
 import torch
 import segmentation_models_pytorch as smp
-from model import SegmentationModel
+from models import SegmentationModel
 from utils import load_model
 import yaml
 import tqdm as tqdm

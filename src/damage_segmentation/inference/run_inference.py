@@ -42,7 +42,7 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image
 from tqdm import tqdm
-from model import SegmentationModel
+from models import SegmentationModel
 
 # -----------------------------------------------------------------
 # SECTION A — MODEL IMPORTS

@@ -18,10 +18,13 @@ import torch.optim.lr_scheduler as lr_scheduler
 from tqdm import tqdm
 from torchmetrics import JaccardIndex
 
-from model import SegmentationModel
-from Dacl_Dataset import train_dataset, validation_dataset
-from utils import set_seed, save_checkpoint, resume_from_checkpoint
-from early_stopping import EarlyStopping
+from damage_segmentation.models.model import SegmentationModel
+from damage_segmentation.datasets.Dacl_Dataset import DaclDataset, train_dataset, validation_dataset
+from damage_segmentation.utils.utils import set_seed, save_checkpoint, resume_from_checkpoint
+from damage_segmentation.training.early_stopping import EarlyStopping
+
+
+config_path = "./configs/training/config.yaml"
 
 # optional wandb
 try:
@@ -40,7 +43,7 @@ except Exception:
 # -----------------------
 # Read config
 # -----------------------
-with open("config_training_rtx4500.yaml", "r") as f:
+with open(config_path, "r") as f:
     cfg = yaml.safe_load(f)
 
 # shorthand

@@ -5,7 +5,7 @@ import numpy as np
 from torch.utils.data import Dataset
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
-from utils import visualize_segmentation
+from src.damage_segmentation.utils.utils import visualize_segmentation
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
@@ -133,8 +133,8 @@ val_transform = A.Compose(
     ]
 )
 
-img_dir = './images/'  
-json_dir = './annotations/'  
+img_dir = './data/images/'  
+json_dir = './data/annotations/'  
 
 train_dataset = DaclDataset(img_dir + "/train", json_dir + "/train", transform=train_transform)
 validation_dataset = DaclDataset(img_dir + "/validation", json_dir + "/validation", transform=val_transform)
@@ -142,6 +142,6 @@ validation_dataset = DaclDataset(img_dir + "/validation", json_dir + "/validatio
 image, mask = train_dataset[0]  # Both are tensors
 # validate_mask(mask, image.shape, num_classes=19)
 image = image.float().unsqueeze(0)
-mask = mask.unsqueeze(0) 
+# mask = mask.unsqueeze(0) 
 # print(f"Image shape:{image.shape}, Mask shape: {mask.shape}")
 # visualize_segmentation(validation_dataset, idx=827, samples=3)
